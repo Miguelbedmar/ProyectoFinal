@@ -17,6 +17,8 @@ El principal objetivo de este proyecto de programación  es  crear una app  simu
 10.Al finalizar la applicación se deberá mostrar un mensaje de finalización de programa.
 
 
-🆔IDES.
+🧑‍💻ecnologías y 🆔IDE que se utilizara durante el desarrollo
+Java
+SQL
 Eclipse.
 Mysql
