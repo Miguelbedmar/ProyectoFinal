@@ -1,0 +1,91 @@
+package modelo;
+
+import java.util.Date;
+
+public class Cliente {
+
+	// ATRIBUTOS
+	protected int idCliente;
+	protected String nombre;
+	protected String apellido;
+	protected String telefono;
+	protected String email;
+	protected String ciudad;
+	protected boolean esSocio;
+	protected Date fechaNacimiento;
+	
+	//CONSTRUCTOR
+	
+	public Cliente() { // ESTE CONSTRUCTOR RECIBE LOS PARAMETROS MARCADOS COMO NOT NULL
+		
+	}
+	
+	
+	
+
+	// GETTERS Y SETTERS
+	public int getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public boolean isEsSocio() {
+		return esSocio;
+	}
+
+	public void setEsSocio(boolean esSocio) {
+		this.esSocio = esSocio;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+}
