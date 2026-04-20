@@ -32,12 +32,18 @@ tipo ENUM('Videojuego','Consola','Accesorio','PC') NOT NULL
 );
 CREATE TABLE Tienda(
 id_tienda INT AUTO_INCREMENT PRIMARY KEY,
-id_cliente INT,
-FOREIGN KEY(id_cliente)REFERENCES Cliente (id_cliente),
 ciudad VARCHAR(64)
+);
+
+CREATE TABLE Cliente_Tienda(
+id_cliente INT,
+id_tienda INT,
+FOREIGN KEY (id_cliente)REFERENCES Cliente (id_cliente),
+FOREIGN KEY (id_tienda)REFERENCES Tienda (id_tienda)
 );
 CREATE TABLE Venta(
 id_venta INT AUTO_INCREMENT PRIMARY KEY,
+fecha_venta DATE NOT NULL,
 id_cliente INT,
 id_tienda INT,
 FOREIGN KEY(id_cliente)REFERENCES Cliente (id_cliente),
