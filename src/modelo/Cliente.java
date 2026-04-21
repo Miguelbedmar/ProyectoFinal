@@ -13,15 +13,21 @@ public class Cliente {
 	protected String ciudad;
 	protected boolean esSocio;
 	protected Date fechaNacimiento;
-	
-	//CONSTRUCTOR
-	
-	public Cliente() { // ESTE CONSTRUCTOR RECIBE LOS PARAMETROS MARCADOS COMO NOT NULL
-		
+
+	// CONSTRUCTOR
+
+	public Cliente(String nombre, String apellido, String telefono, String email, String ciudad, boolean esSocio,
+			Date fechaNacimiento) {
+
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.ciudad = ciudad;
+		this.esSocio = esSocio;
+		this.fechaNacimiento = fechaNacimiento;
+
 	}
-	
-	
-	
 
 	// GETTERS Y SETTERS
 	public int getIdCliente() {
