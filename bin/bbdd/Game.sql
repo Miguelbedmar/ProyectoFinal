@@ -18,14 +18,14 @@ email VARCHAR(58) NOT NULL UNIQUE	,
 ciudad VARCHAR(48),
 es_socio BOOLEAN,
 fecha_nacimiento DATE,
-id_socio INT,
-FOREIGN KEY(id_socio) REFERENCES Socio(id_socio)
+id_socio INT , 
+FOREIGN KEY(id_socio) REFERENCES Socio(id_socio)ON DELETE SET NULL
 );
 
 CREATE TABLE Producto(
 id_producto INT AUTO_INCREMENT PRIMARY KEY,
 nombre VARCHAR (64) NOT NULL,
-descripcion VARCHAR (64),
+descripcion VARCHAR (255),
 precio DECIMAL (10,2) NOT NULL,
 plataforma VARCHAR (58),
 tipo ENUM('Videojuego','Consola','Accesorio','PC') NOT NULL

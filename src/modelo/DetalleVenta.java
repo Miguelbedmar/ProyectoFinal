@@ -1,7 +1,6 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DetalleVenta {
 	// ATRIBUTO
@@ -28,7 +27,6 @@ public class DetalleVenta {
 	public void setIdDV(int idDV) {
 		this.idDV = idDV;
 	}
-	
 	
 
 	public Venta getVenta() {
