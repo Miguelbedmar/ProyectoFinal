@@ -7,9 +7,9 @@ public class Producto {
 	private String descripcion;
 	private double precio;
 	private String plataforma;
-	private tipoProducto tipo;
+	private tipoProducto tipo;  
 
-	private enum tipoProducto {
+	private enum tipoProducto { // DECLARACIÓN DE UN ENUM
 		VIDEOJUEGO, CONSOLA, ACCESORIO, PC;
 	}
 
