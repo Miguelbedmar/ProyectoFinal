@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Almacen {
 	// ATRIBUTOS
 	private int idAlmacen;
-	private ArrayList<Producto> producto;
+	private Producto producto;
 	private Tienda tienda;
 	private int stockAlmacen;
 
 	// CONSTRUCTOR
-	public Almacen(ArrayList<Producto> producto, Tienda tienda, int stockAlmacen) {
+	public Almacen(Producto producto, Tienda tienda, int stockAlmacen) {
 		this.producto = producto;
 		this.tienda = tienda;
 		this.stockAlmacen = stockAlmacen;
@@ -25,11 +25,11 @@ public class Almacen {
 		this.idAlmacen = idAlmacen;
 	}
 
-	public ArrayList<Producto> getProducto() {
+	public Producto getProducto() {
 		return producto;
 	}
 
-	public void setProducto(ArrayList<Producto> producto) {
+	public void setProducto( Producto producto) {
 		this.producto = producto;
 	}
 

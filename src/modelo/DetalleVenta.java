@@ -3,18 +3,17 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DetalleVenta extends Venta {
+public class DetalleVenta {
 	// ATRIBUTO
 	private int idDV;
+	private Venta venta;
 	private ArrayList<Producto> producto;
 	private double precioUnidad;
 	private int cantidad;
 
 	// CONSTRUCTOR
-	public DetalleVenta(Date fechaVenta, Cliente cliente, Tienda tienda, ArrayList<Producto> producto,
-			double precioUnidad, int cantidad) {
-		super(fechaVenta, cliente, tienda);
-
+	public DetalleVenta(Venta venta, ArrayList<Producto> producto, double precioUnidad, int cantidad) {
+		this.venta = venta;
 		this.producto = producto;
 		this.precioUnidad = precioUnidad;
 		this.cantidad = cantidad;
@@ -28,6 +27,16 @@ public class DetalleVenta extends Venta {
 
 	public void setIdDV(int idDV) {
 		this.idDV = idDV;
+	}
+	
+	
+
+	public Venta getVenta() {
+		return venta;
+	}
+
+	public void setVenta(Venta venta) {
+		this.venta = venta;
 	}
 
 	public ArrayList<Producto> getProducto() {
