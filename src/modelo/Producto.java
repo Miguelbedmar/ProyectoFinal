@@ -20,7 +20,7 @@ public class Producto {
 		this.precio = precio;
 		this.plataforma = plataforma;
 		this.tipo = tipo;
-
+		
 	}
 
 	// GETTERS Y SETTERS

@@ -22,17 +22,20 @@ public class ProductoDao {
 
 		String sql = "SELECT * FROM Producto";
 
-		try (PreparedStatement ps = conexion.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
-
+		try (PreparedStatement ps = conexion.prepareStatement(sql); 
+				ResultSet rs = ps.executeQuery()) {
+		
 			while (rs.next()) {
+			String tipoStr=rs.getString("tipo");
+			tipoProducto tipo= tipoProducto.valueOf(tipoStr);
 			Producto p=new Producto(
 				rs.getString("nombre"),
 				rs.getString("descripcion"),	
 				rs.getDouble("precio"),
 				rs.getString("plataforma"),
+				tipo,					
 					);	
 			producto.add(p);
-				
 			
 			}
 
