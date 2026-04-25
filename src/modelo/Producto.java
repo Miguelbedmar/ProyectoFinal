@@ -9,7 +9,7 @@ public class Producto {
 	private String plataforma;
 	private tipoProducto tipo;  
 
-	private enum tipoProducto { // DECLARACIÓN DE UN ENUM
+	public enum tipoProducto { // DECLARACIÓN DE UN ENUM
 		VIDEOJUEGO, CONSOLA, ACCESORIO, PC;
 	}
 

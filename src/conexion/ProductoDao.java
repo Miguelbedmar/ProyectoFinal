@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Producto;
+import modelo.Producto.tipoProducto;
 
 public class ProductoDao {
 
@@ -26,14 +27,15 @@ public class ProductoDao {
 				ResultSet rs = ps.executeQuery()) {
 		
 			while (rs.next()) {
-			String tipoStr=rs.getString("tipo");
-			tipoProducto tipo= tipoProducto.valueOf(tipoStr);
+		
+				String tipoStr=rs.getString("tipo"); // convertir un tipo String a un enum
+				tipoProducto tipo=tipoProducto.valueOf(tipoStr);
 			Producto p=new Producto(
 				rs.getString("nombre"),
 				rs.getString("descripcion"),	
 				rs.getDouble("precio"),
 				rs.getString("plataforma"),
-				tipo,					
+				tipo
 					);	
 			producto.add(p);
 			
