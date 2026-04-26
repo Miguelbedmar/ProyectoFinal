@@ -71,8 +71,18 @@ public class ProductoDao {
 		return (ArrayList<Producto>) producto;
 	}
 
-	public void realizarCompra(Venta venta, DetalleVenta detalleVenta, Almacen almacen, Producto producto) {
+	public void realizarCompra(DetalleVenta detalleVenta, Almacen almacen) throws SQLException {
 
+		String sql = "INSERT INTO Venta (fecha_venta,id_cliente,id_tienda) VALUES (?,?,?)";
+		
+		try (PreparedStatement ps = conexion.prepareStatement(sql);) {
+			
+			
+			
+		}
+
+	
+	
 	}
 
 }

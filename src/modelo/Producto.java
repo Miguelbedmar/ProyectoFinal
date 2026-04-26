@@ -2,7 +2,7 @@ package modelo;
 
 public class Producto {
 	// ATRIBUTO
-	private int id;
+	private int idProducto;
 	private String nombre;
 	private String descripcion;
 	private double precio;
@@ -26,11 +26,11 @@ public class Producto {
 	// GETTERS Y SETTERS
 
 	public int getId() {
-		return id;
+		return idProducto;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idProducto = id;
 	}
 
 	public String getNombre() {
