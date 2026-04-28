@@ -11,7 +11,6 @@ import modelo.Almacen;
 import modelo.DetalleVenta;
 import modelo.Producto;
 import modelo.Producto.tipoProducto;
-import modelo.Venta;
 
 public class ProductoDao {
 
@@ -74,15 +73,22 @@ public class ProductoDao {
 	public void realizarCompra(DetalleVenta detalleVenta, Almacen almacen) throws SQLException {
 
 		String sql = "INSERT INTO Venta (fecha_venta,id_cliente,id_tienda) VALUES (?,?,?)";
-		
+
 		try (PreparedStatement ps = conexion.prepareStatement(sql);) {
-			
-			
-			
+
+			ps.setDate(1, new java.sql.Date(detalleVenta.getVenta().getFechaVenta().getTime()));
+			ps.setInt(2, detalleVenta.getVenta().getCliente().getIdCliente());
+			ps.setInt(3, detalleVenta.getVenta().getTienda().getId());
+
+			ps.executeUpdate();
+
+		}
+		String sql2 = "INSERT INTO DetalleVenta (fecha_venta,id_cliente,id_tienda) VALUES (?,?,?)";
+
+		try (PreparedStatement ps = conexion.prepareStatement(sql2);) {
+
 		}
 
-	
-	
 	}
 
 }
