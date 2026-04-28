@@ -3,7 +3,7 @@ package modelo;
 public class Tienda {
 
 	// ATRIBUTOS
-	private int id;
+	private int idT;
 	private String ciudad;
 
 	// CONSTRUCTOR
@@ -13,11 +13,11 @@ public class Tienda {
 
 	// GETTERS Y SETTERS
 	public int getId() {
-		return id;
+		return idT;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idT = id;
 	}
 
 	public String getCiudad() {

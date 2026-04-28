@@ -83,10 +83,28 @@ public class ProductoDao {
 			ps.executeUpdate();
 
 		}
-		String sql2 = "INSERT INTO DetalleVenta (fecha_venta,id_cliente,id_tienda) VALUES (?,?,?)";
+		String sql2 = "INSERT INTO Detalle_Venta (id_venta,id_producto,precio_unidad,cantidad) VALUES (?,?,?,?)";
 
-		try (PreparedStatement ps = conexion.prepareStatement(sql2);) {
+		try (PreparedStatement ps2 = conexion.prepareStatement(sql2);) {
 
+			for (Producto p : detalleVenta.getProducto()) {
+				ps2.setInt(1, detalleVenta.getVenta().getIdVenta());
+				ps2.setInt(2, p.getId());
+				ps2.setDouble(3, detalleVenta.getPrecioUnidad());
+				ps2.setInt(4, detalleVenta.getCantidad());
+				ps2.executeUpdate();
+			}
+		}
+
+		String sql3 = "UPDATE Almacen SET stock_almacen=stock_almacen - ?" + "WHERE id_producto= ? AND id_tienda =?";
+
+		try (PreparedStatement ps3 = conexion.prepareStatement(sql3);) {
+			for (Producto p : detalleVenta.getProducto()) {
+				ps3.setInt(1,detalleVenta.getCantidad());
+				ps3.setInt(2, p.getId());
+				ps3.setInt(3, detalleVenta.getVenta().getTienda().getId());
+				ps3.executeUpdate();
+			}
 		}
 
 	}
