@@ -5,7 +5,10 @@ USE Game;
 CREATE TABLE Socio(
 id_socio INT AUTO_INCREMENT PRIMARY KEY,
 punto_game INT DEFAULT 0,
-fecha_registro DATE	
+fecha_registro DATE,	
+id_cliente INT,
+FOREIGN KEY(id_cliente) REFERENCES Socio(id_cliente)ON DELETE SET NULL
+
 
 );
 

@@ -12,6 +12,7 @@ public class Cliente {
 	protected String email;
 	protected String ciudad;
 	protected boolean esSocio;
+	private int idSocio;
 	protected Date fechaNacimiento;
 
 	// CONSTRUCTOR
@@ -93,5 +94,14 @@ public class Cliente {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
+	public int getIdSocio() {
+		return idSocio;
+	}
+
+	public void setIdSocio(int idSocio) {
+		this.idSocio = idSocio;
+	}
+	
 
 }

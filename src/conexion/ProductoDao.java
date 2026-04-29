@@ -11,6 +11,7 @@ import modelo.Almacen;
 import modelo.DetalleVenta;
 import modelo.Producto;
 import modelo.Producto.tipoProducto;
+import modelo.Socio;
 
 public class ProductoDao {
 
@@ -100,10 +101,23 @@ public class ProductoDao {
 
 		try (PreparedStatement ps3 = conexion.prepareStatement(sql3);) {
 			for (Producto p : detalleVenta.getProducto()) {
-				ps3.setInt(1,detalleVenta.getCantidad());
+				ps3.setInt(1, detalleVenta.getCantidad());
 				ps3.setInt(2, p.getId());
 				ps3.setInt(3, detalleVenta.getVenta().getTienda().getId());
 				ps3.executeUpdate();
+			}
+
+		}
+		if (detalleVenta.getVenta().getCliente().isEsSocio()) {
+			String sql4 = "UPDATE Socio SET punto_game= punto_game + ? WHERE id_socio =?";
+
+			try (PreparedStatement ps4 = conexion.prepareStatement(sql4);) {
+				ps4.setInt(1,(int)detalleVenta.getPrecioUnidad()*detalleVenta.getCantidad());
+				ps4.setInt(2, detalleVenta.getVenta().getCliente().getIdSocio());
+				
+				
+
+				ps4.executeUpdate();
 			}
 		}
 
