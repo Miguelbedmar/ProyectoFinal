@@ -13,6 +13,7 @@ public class Cliente {
 	protected String ciudad;
 	protected boolean esSocio;
 	private int idSocio;
+	private String contrasenia;
 	protected Date fechaNacimiento;
 
 	// CONSTRUCTOR
@@ -61,6 +62,15 @@ public class Cliente {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	public String getEmail() {

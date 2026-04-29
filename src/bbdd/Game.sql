@@ -5,17 +5,14 @@ USE Game;
 CREATE TABLE Socio(
 id_socio INT AUTO_INCREMENT PRIMARY KEY,
 punto_game INT DEFAULT 0,
-fecha_registro DATE,	
-id_cliente INT,
-FOREIGN KEY(id_cliente) REFERENCES Socio(id_cliente)ON DELETE SET NULL
-
-
+fecha_registro DATE	
 );
 
 CREATE TABLE Cliente(
 id_cliente INT  AUTO_INCREMENT PRIMARY KEY, 
 nombre VARCHAR(64) NOT NULL,
 apellido VARCHAR (64),
+contrasenia VARCHAR (64) NOT NULL,
 telefono VARCHAR(48) NOT NULL ,
 email VARCHAR(58) NOT NULL UNIQUE	,
 ciudad VARCHAR(48),
