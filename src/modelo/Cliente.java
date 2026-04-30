@@ -18,15 +18,17 @@ public class Cliente {
 
 	// CONSTRUCTOR
 
-	public Cliente(String nombre, String apellido, String telefono, String email, String ciudad, boolean esSocio,
-			Date fechaNacimiento) {
-
+	public Cliente(int idCliente, String nombre, String apellido, String telefono, String email, String ciudad,
+			boolean esSocio, int idSocio, String contrasenia, Date fechaNacimiento) {
+		this.idCliente = idCliente;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.telefono = telefono;
 		this.email = email;
 		this.ciudad = ciudad;
 		this.esSocio = esSocio;
+		this.idSocio = idSocio;
+		this.contrasenia = contrasenia;
 		this.fechaNacimiento = fechaNacimiento;
 
 	}
@@ -64,7 +66,6 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
-	
 	public String getContrasenia() {
 		return contrasenia;
 	}
@@ -111,6 +112,13 @@ public class Cliente {
 
 	public void setIdSocio(int idSocio) {
 		this.idSocio = idSocio;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono="
+				+ telefono + ", email=" + email + ", ciudad=" + ciudad + ", esSocio=" + esSocio + ", idSocio=" + idSocio
+				+ ", contrasenia=" + contrasenia + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
 	
 

@@ -8,15 +8,15 @@ public class Socio extends Cliente {
 	private int puntoGame;
 	private Date fechaRegistro;
 
-	public Socio(String nombre, String apellido, String ciudad, boolean esSocio, String telefono, String email,
-			int puntoGame, Date fechaNacimiento,Date fechaRegistro) {
-		super(nombre, apellido, telefono, email, ciudad, esSocio, fechaNacimiento);
-
+	public Socio(int idSocio, int idCliente, String nombre, String apellido, String telefono, String email,
+			String ciudad, boolean esSocio, String contrasenia, int puntoGame, Date fechaNacimiento,
+			Date fechaRegistro) {
+		super(idCliente, nombre, apellido, telefono, email, ciudad, esSocio, idSocio, contrasenia, fechaNacimiento);
+		this.idSocio = idSocio;
 		this.puntoGame = puntoGame;
 		this.fechaRegistro = fechaRegistro;
 
 	}
-	
 
 	public int getIdSocio() {
 		return idSocio;
@@ -41,8 +41,5 @@ public class Socio extends Cliente {
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
-	
-	
-	
 
 }
