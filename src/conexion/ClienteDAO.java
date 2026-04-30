@@ -45,4 +45,9 @@ public class ClienteDAO {
 
 		return null;
 	}
+	
+	public void registroNuevoCliente()throws SQLException {
+		
+		
+	}
 }
