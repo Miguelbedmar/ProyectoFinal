@@ -42,4 +42,9 @@ public class Socio extends Cliente {
 		this.fechaRegistro = fechaRegistro;
 	}
 
+	@Override
+	public String toString() {
+		return "Socio [idSocio=" + idSocio + ", puntoGame=" + puntoGame + ", fechaRegistro=" + fechaRegistro + "]";
+	}
+
 }

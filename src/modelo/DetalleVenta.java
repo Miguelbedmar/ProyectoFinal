@@ -61,4 +61,10 @@ public class DetalleVenta {
 		this.cantidad = cantidad;
 	}
 
+	@Override
+	public String toString() {
+		return "DetalleVenta [idDV=" + idDV + ", venta=" + venta + ", producto=" + producto + ", precioUnidad="
+				+ precioUnidad + ", cantidad=" + cantidad + "]";
+	}
+
 }

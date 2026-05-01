@@ -49,4 +49,10 @@ public class Venta {
 		this.tienda = tienda;
 	}
 
+	@Override
+	public String toString() {
+		return "Venta [idVenta=" + idVenta + ", fechaVenta=" + fechaVenta + ", cliente=" + cliente + ", tienda="
+				+ tienda + "]";
+	}
+
 }

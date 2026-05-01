@@ -47,4 +47,11 @@ public class Almacen {
 		this.stockAlmacen = stockAlmacen;
 	}
 
+	@Override
+	public String toString() {
+		return "Almacen [idAlmacen=" + idAlmacen + ", producto=" + producto + ", tienda=" + tienda + ", stockAlmacen="
+				+ stockAlmacen + "]";
+	}
+	
+
 }
