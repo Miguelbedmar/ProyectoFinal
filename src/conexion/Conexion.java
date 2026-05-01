@@ -26,7 +26,7 @@ public class Conexion {
 		try {
 			Class.forName(DRIVER);
 				conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
-			System.out.println("Conexi�n OK");
+			System.out.println("Conexion OK");
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error al cargar el controlador");
