@@ -79,7 +79,7 @@ public class ProductoDao {
 
 			ps.setDate(1, new java.sql.Date(detalleVenta.getVenta().getFechaVenta().getTime()));
 			ps.setInt(2, detalleVenta.getVenta().getCliente().getIdCliente());
-			ps.setInt(3, detalleVenta.getVenta().getTienda().getId());
+			ps.setInt(3, detalleVenta.getVenta().getTienda().getIdT());
 
 			ps.executeUpdate();
 
@@ -103,7 +103,7 @@ public class ProductoDao {
 			for (Producto p : detalleVenta.getProducto()) {
 				ps3.setInt(1, detalleVenta.getCantidad());
 				ps3.setInt(2, p.getId());
-				ps3.setInt(3, detalleVenta.getVenta().getTienda().getId());
+				ps3.setInt(3, detalleVenta.getVenta().getTienda().getIdT());
 				ps3.executeUpdate();
 			}
 

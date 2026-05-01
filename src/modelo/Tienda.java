@@ -9,18 +9,12 @@ public class Tienda {
 	private String direccion;
 
 	// CONSTRUCTOR
-	public Tienda(String ciudad) {
+	public Tienda(String ciudad,String codigoPostal,String direccion) {
+		
 		this.ciudad = ciudad;
 	}
 
 	// GETTERS Y SETTERS
-	public int getId() {
-		return idT;
-	}
-
-	public void setId(int id) {
-		this.idT = id;
-	}
 
 	public String getCiudad() {
 		return ciudad;
