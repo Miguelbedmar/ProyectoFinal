@@ -112,15 +112,33 @@ public class ProductoDao {
 			String sql4 = "UPDATE Socio SET punto_game= punto_game + ? WHERE id_socio =?";
 
 			try (PreparedStatement ps4 = conexion.prepareStatement(sql4);) {
-				ps4.setInt(1,(int)detalleVenta.getPrecioUnidad()*detalleVenta.getCantidad());
+				ps4.setInt(1, (int) detalleVenta.getPrecioUnidad() * detalleVenta.getCantidad());
 				ps4.setInt(2, detalleVenta.getVenta().getCliente().getIdSocio());
-				
-				
 
 				ps4.executeUpdate();
 			}
 		}
 
+	}
+
+	public void añadirProductos(Producto producto) throws SQLException {
+		String sql = "INSERT INTO Producto(nombre,descripcion,precio,plataforma,tipo) VALUES(?,?,?,?,?)";
+		try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+
+			ps.setString(1, producto.getNombre());
+			ps.setString(2, producto.getDescripcion());
+			ps.setDouble(3, producto.getPrecio());
+			ps.setString(4, producto.getPlataforma());
+			ps.setString(5, producto.getTipo().name());
+			ps.executeUpdate();
+		}
+	}
+
+	public void retirarProductos(Producto producto) throws SQLException {
+		String sql = "DELETE FROM producto WHERE id_producto= ?";
+		try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+
+		}
 	}
 
 }
