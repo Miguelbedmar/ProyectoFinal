@@ -12,7 +12,7 @@ CREATE TABLE Cliente(
 id_cliente INT  AUTO_INCREMENT PRIMARY KEY, 
 nombre VARCHAR(64) NOT NULL,
 apellido VARCHAR (64),
-contrasenia VARCHAR (64) NOT NULL,
+contrasenia VARCHAR (225) NOT NULL,
 telefono VARCHAR(48) NOT NULL ,
 email VARCHAR(58) NOT NULL UNIQUE	,
 ciudad VARCHAR(48),
@@ -32,7 +32,9 @@ tipo ENUM('Videojuego','Consola','Accesorio','PC') NOT NULL
 );
 CREATE TABLE Tienda(
 id_tienda INT AUTO_INCREMENT PRIMARY KEY,
-ciudad VARCHAR(64)
+ciudad VARCHAR(64),
+codigo_postal VARCHAR(52),
+direccion VARCHAR(168)
 );
 
 CREATE TABLE Cliente_Tienda(

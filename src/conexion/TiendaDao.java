@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Almacen;
+import modelo.Producto;
 import modelo.Tienda;
+import modelo.Producto.tipoProducto;
 
 public class TiendaDao {
 
@@ -28,7 +30,7 @@ public class TiendaDao {
 				Tienda t = new Tienda(rs.getString("ciudad"), rs.getString("codigo_postal"), rs.getString("direccion"));
 
 				t.setIdT(rs.getInt("id_tienda"));
-				
+
 				tienda.add(t);
 
 			}
@@ -40,11 +42,29 @@ public class TiendaDao {
 
 	public ArrayList<Almacen> obtenerStockTodasTiendas(int idT) throws SQLException {
 		List<Almacen> almacen = new ArrayList<>();
-		
-		
-		String sql1="";
-		try(PreparedStatement ps = conexion.prepareStatement(sql1)){
-			
+
+		String sql1 = "SELECT a.*,p.*,t.* FROM Almacen " + " INNER JOIN Producto p ON a.id_producto = p.id_producto"
+				+ " INNER JOIN Tienda t ON a.id_tienda=t.id_tienda" + " WHERE id_tienda=?";
+		try (PreparedStatement ps = conexion.prepareStatement(sql1)) {
+			ps.setInt(1, idT);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Almacen al = new Almacen(null, null, rs.getInt("stock_almacen"));
+
+				al.setIdAlmacen(rs.getInt("id_almacen"));
+				String tipoStr = rs.getString("tipo");
+				tipoProducto tipo = tipoProducto.valueOf(tipoStr);
+
+				Producto p = new Producto(rs.getString("nombre"), rs.getString("descripcion"), rs.getDouble("precio"),
+						rs.getString("plataforma"), tipo);
+				al.setProducto(p);
+
+				Tienda t = new Tienda(rs.getString("ciudad"), rs.getString("codigo_postal"), rs.getString("direccion"));
+				al.setTienda(t);
+				almacen.add(al);
+			}
+
 		}
 
 		return (ArrayList<Almacen>) almacen;
