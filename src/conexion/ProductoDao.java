@@ -123,6 +123,7 @@ public class ProductoDao {
 
 	public void añadirProductos(Producto producto) throws SQLException {
 		String sql = "INSERT INTO Producto(nombre,descripcion,precio,plataforma,tipo) VALUES(?,?,?,?,?)";
+
 		try (PreparedStatement ps = conexion.prepareStatement(sql)) {
 
 			ps.setString(1, producto.getNombre());
@@ -135,9 +136,21 @@ public class ProductoDao {
 	}
 
 	public void retirarProductos(Producto producto) throws SQLException {
+		if (producto == null) {
+			return;
+		}
+
 		String sql = "DELETE FROM producto WHERE id_producto= ?";
 		try (PreparedStatement ps = conexion.prepareStatement(sql)) {
 
+			ps.setInt(1, producto.getId());
+			int columnaAfectada = ps.executeUpdate();
+
+			if (columnaAfectada == 0) {
+				System.out.println("No se encontro ningún producto"+""+producto);
+			} else {
+				System.out.println("Producto se ha eliminado con éxito");
+			}
 		}
 	}
 
