@@ -15,7 +15,10 @@ import modelo.Producto.tipoProducto;
 public class TiendaDao {
 
 	private Connection conexion;
-
+	
+	public TiendaDao() {
+		conexion = Conexion.getInstance().getConexion();
+	}
 	public ArrayList<Tienda> obtenerTodasTiendas() throws SQLException {
 
 		List<Tienda> tienda = new ArrayList<>();

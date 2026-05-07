@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import modelo.Cliente;
+import modelo.Cliente.rol;
+import modelo.Producto.tipoProducto;
 
 public class ClienteDao {
 
@@ -25,11 +27,12 @@ public class ClienteDao {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-
+				String rolStr = rs.getString("rol");
+				rol us = rol.valueOf(rolStr);
 				return new Cliente(rs.getInt("id_cliente"), rs.getString("nombre"), rs.getString("apellido"),
 						rs.getString("telefono"), rs.getString("email"), rs.getString("ciudad"),
 						rs.getBoolean("es_socio"), rs.getInt("id_socio"), rs.getString("contrasenia"),
-						rs.getDate("fecha_nacimiento")
+						rs.getDate("fecha_nacimiento"), us
 
 				);
 			}

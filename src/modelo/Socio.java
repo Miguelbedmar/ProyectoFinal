@@ -9,9 +9,9 @@ public class Socio extends Cliente {
 	private Date fechaRegistro;
 
 	public Socio(int idSocio, int idCliente, String nombre, String apellido, String telefono, String email,
-			String ciudad, boolean esSocio, String contrasenia, int puntoGame, Date fechaNacimiento,
+			String ciudad, boolean esSocio, String contrasenia, int puntoGame, Date fechaNacimiento,rol usuario,
 			Date fechaRegistro) {
-		super(idCliente, nombre, apellido, telefono, email, ciudad, esSocio, idSocio, contrasenia, fechaNacimiento);
+		super(idCliente, nombre, apellido, telefono, email, ciudad, esSocio, idSocio, contrasenia, fechaNacimiento,usuario);
 		this.idSocio = idSocio;
 		this.puntoGame = puntoGame;
 		this.fechaRegistro = fechaRegistro;

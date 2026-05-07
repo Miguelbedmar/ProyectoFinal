@@ -15,11 +15,16 @@ public class Cliente {
 	private int idSocio;
 	private String contrasenia;
 	protected Date fechaNacimiento;
+	protected rol usuario;
+
+	public enum rol {
+		ADMIN, CLIENTE
+	}
 
 	// CONSTRUCTOR
 
 	public Cliente(int idCliente, String nombre, String apellido, String telefono, String email, String ciudad,
-			boolean esSocio, int idSocio, String contrasenia, Date fechaNacimiento) {
+			boolean esSocio, int idSocio, String contrasenia, Date fechaNacimiento ,rol usuario) {
 		this.idCliente = idCliente;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -30,7 +35,7 @@ public class Cliente {
 		this.idSocio = idSocio;
 		this.contrasenia = contrasenia;
 		this.fechaNacimiento = fechaNacimiento;
-
+		this.usuario=usuario;
 	}
 
 	// GETTERS Y SETTERS
@@ -106,6 +111,14 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	public rol getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(rol usuario) {
+		this.usuario = usuario;
+	}
+
 	public int getIdSocio() {
 		return idSocio;
 	}
@@ -120,6 +133,5 @@ public class Cliente {
 				+ telefono + ", email=" + email + ", ciudad=" + ciudad + ", esSocio=" + esSocio + ", idSocio=" + idSocio
 				+ ", contrasenia=" + contrasenia + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
-	
 
 }

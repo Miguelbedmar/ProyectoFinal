@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Socio;
+import modelo.Cliente.rol;
 
 public class SocioDAO {
 
@@ -35,6 +36,8 @@ public class SocioDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
+				String rolStr = rs.getString("rol");
+				rol us = rol.valueOf(rolStr);
 				Socio s = new Socio(
 						rs.getInt("id_socio"),
 						rs.getInt("id_cliente"),
@@ -46,9 +49,10 @@ public class SocioDAO {
 						rs.getBoolean("es_socio"),
 						rs.getString("contrasenia"),
 						rs.getInt("punto_game"),
-						rs.getDate("fecha_nacimiento"),
-						rs.getDate("fecha_registro")
-											
+						rs.getDate("fecha_nacimiento"),					
+						us, rs.getDate("fecha_registro")
+						
+						
 						);
 				
 				
