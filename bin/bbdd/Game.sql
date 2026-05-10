@@ -71,3 +71,5 @@ FOREIGN KEY (id_venta) REFERENCES Venta(id_venta),
 FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
 );
 INSERT INTO Cliente (nombre,contrasenia,email,telefono,rol)VALUES ('admin1','admin789','admin@gmail.com',456314,'admin');
+
+SELECT * FROM Cliente WHERE email = 'admin@gmail.com';
