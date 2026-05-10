@@ -103,7 +103,7 @@ public class LoginVista extends JPanel implements ActionListener {
 					JOptionPane.showMessageDialog(this, "Email o contraseñia incorrectos");
 				}
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
+				JOptionPane.showMessageDialog(this,"Se ha producido un error inesperado");
 				e1.printStackTrace();
 			}
 

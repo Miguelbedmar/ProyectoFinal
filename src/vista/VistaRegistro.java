@@ -7,10 +7,12 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public class VistaRegistro extends JPanel implements ActionListener {
 	// ATRIBUTOS OBLIGATORIOS (NOT NULL)
@@ -32,8 +34,21 @@ public class VistaRegistro extends JPanel implements ActionListener {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+		registrarse = new JButton("REGISTRARSE");
+		volverAtras = new JButton("VOLVER ATRAS");
 		formularioObligatorio();
 		formularioOpcional();
+		// BOTON REGISTRARSE
+		registrarse.addActionListener(this);
+		registrarse.setMaximumSize(new Dimension(200, 40));
+		registrarse.setAlignmentX(CENTER_ALIGNMENT);
+		add(registrarse);
+
+		// BOTON VOLVER ATRAS
+		volverAtras.addActionListener(this);
+		volverAtras.setMaximumSize(new Dimension(200, 40));
+		volverAtras.setAlignmentX(CENTER_ALIGNMENT);
+		add(volverAtras);
 	}
 
 	public void formularioObligatorio() {
@@ -96,7 +111,16 @@ public class VistaRegistro extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == registrarse) {
 
+		}
+		if (e.getSource() == volverAtras) {
+			JFrame lV = (JFrame) SwingUtilities.getWindowAncestor(this);
+			lV.getContentPane().removeAll();
+			lV.getContentPane().add(new LoginVista());
+			lV.revalidate();
+			lV.repaint();
+
+		}
 	}
 }
