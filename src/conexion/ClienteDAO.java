@@ -43,7 +43,7 @@ public class ClienteDao {
 
 	public void registroNuevoCliente(Cliente cliente) throws SQLException {
 
-		String sql = "INSERT INTO Cliente (nombre,apellido,contrasenia,telefono,email,ciudad,es_socio,fecha_nacimiento) VALUES (?,?,?,?,?,?,?,?) ";
+		String sql = "INSERT INTO Cliente (nombre,apellido,contrasenia,telefono,email,ciudad,es_socio,fecha_nacimiento,rol) VALUES (?,?,?,?,?,?,?,?,?) ";
 
 		try (PreparedStatement ps = conexion.prepareStatement(sql)) {
 
@@ -54,7 +54,13 @@ public class ClienteDao {
 			ps.setString(5, cliente.getEmail());
 			ps.setString(6, cliente.getCiudad());
 			ps.setBoolean(7, false);
-			ps.setDate(8, new java.sql.Date(cliente.getFechaNacimiento().getTime()));
+			if (cliente.getFechaNacimiento() != null) {
+				ps.setDate(8, new java.sql.Date(cliente.getFechaNacimiento().getTime()));
+
+			} else {
+				ps.setNull(8, java.sql.Types.DATE);
+			}
+			ps.setString(9, cliente.getRolUsuario().name());
 
 			ps.executeUpdate();
 		}

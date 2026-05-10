@@ -3,16 +3,22 @@ package vista;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+
+import conexion.ClienteDao;
+import modelo.Cliente;
+import modelo.Cliente.rol;
 
 public class VistaRegistro extends JPanel implements ActionListener {
 	// ATRIBUTOS OBLIGATORIOS (NOT NULL)
@@ -112,7 +118,41 @@ public class VistaRegistro extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == registrarse) {
+			Cliente c = null;
+			try {
+				java.sql.Date fecha = null;
+				if (!fechaNacimiento.getText().isEmpty()) {
+					fecha = java.sql.Date.valueOf(fechaNacimiento.getText());
+				}
+				 c = new Cliente(0, nombre.getText(), apellido.getText(), telefono.getText(), email.getText(),
+							ciudad.getText(), false, 0, new String(contrasenia.getPassword()), fecha, rol.CLIENTE);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(this, "Formato de fecha incorrecta .debe ser yyyy-MM-dd ");
+				e1.printStackTrace();
 
+			}
+			if(c!=null) {
+				ClienteDao cD = new ClienteDao();
+				
+				try {
+					cD.registroNuevoCliente(c);
+					JOptionPane.showMessageDialog(this, "!Registro completado !");
+					/*DESPUES DE COMPLETAR EL REGISTRO DE MANERA EXITOSA 
+					 * EL USUARIO SERÁ DEVUELTO AUTOMATICAMENTE AL LOGIN
+					 * */
+					JFrame jf=(JFrame) SwingUtilities.getWindowAncestor(this);
+					jf.getContentPane().removeAll();
+					jf.getContentPane().add(new LoginVista());
+					jf.revalidate();
+					jf.repaint();
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(this, "!E HA PRODUCIDO UN ERROR!");
+				}
+				
+			}
+			
 		}
 		if (e.getSource() == volverAtras) {
 			JFrame lV = (JFrame) SwingUtilities.getWindowAncestor(this);
