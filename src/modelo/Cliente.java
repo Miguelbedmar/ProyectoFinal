@@ -15,7 +15,7 @@ public class Cliente {
 	private int idSocio;
 	private String contrasenia;
 	protected Date fechaNacimiento;
-	protected rol usuario;
+	protected rol Rolusuario;
 
 	public enum rol {
 		ADMIN, CLIENTE
@@ -35,7 +35,7 @@ public class Cliente {
 		this.idSocio = idSocio;
 		this.contrasenia = contrasenia;
 		this.fechaNacimiento = fechaNacimiento;
-		this.usuario=usuario;
+		this.Rolusuario=usuario;
 	}
 
 	// GETTERS Y SETTERS
@@ -111,12 +111,12 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public rol getUsuario() {
-		return usuario;
+	public rol getRolUsuario() {
+		return Rolusuario;
 	}
 
-	public void setUsuario(rol usuario) {
-		this.usuario = usuario;
+	public void setRolUsuario(rol usuario) {
+		this.Rolusuario = usuario;
 	}
 
 	public int getIdSocio() {

@@ -28,7 +28,7 @@ public class ClienteDao {
 
 			if (rs.next()) {
 				String rolStr = rs.getString("rol");
-				rol us = rol.valueOf(rolStr);
+				rol us = rol.valueOf(rolStr.toUpperCase());
 				return new Cliente(rs.getInt("id_cliente"), rs.getString("nombre"), rs.getString("apellido"),
 						rs.getString("telefono"), rs.getString("email"), rs.getString("ciudad"),
 						rs.getBoolean("es_socio"), rs.getInt("id_socio"), rs.getString("contrasenia"),
