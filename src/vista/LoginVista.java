@@ -109,7 +109,11 @@ public class LoginVista extends JPanel implements ActionListener {
 
 		}
 		if (e.getSource() == registro) {
-
+			JFrame registro = (JFrame) SwingUtilities.getWindowAncestor(this);
+			registro.getContentPane().removeAll();
+			registro.getContentPane().add(new VistaRegistro());
+			registro.revalidate();
+			registro.repaint();
 		}
 		if (e.getSource() == cancelar) {
 			System.exit(0);
