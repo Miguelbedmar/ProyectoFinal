@@ -18,7 +18,7 @@ email VARCHAR(58) NOT NULL UNIQUE	,
 ciudad VARCHAR(48),
 es_socio BOOLEAN,
 fecha_nacimiento DATE,
-rol ENUM ('Admin','Cliente'),
+rol ENUM ('ADMIN','CLIENTE'),
 id_socio INT , 
 FOREIGN KEY(id_socio) REFERENCES Socio(id_socio)ON DELETE SET NULL
 );
@@ -71,5 +71,3 @@ FOREIGN KEY (id_venta) REFERENCES Venta(id_venta),
 FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
 );
 INSERT INTO Cliente (nombre,contrasenia,email,telefono,rol)VALUES ('admin1','admin789','admin@gmail.com',456314,'admin');
-
-SELECT * FROM Cliente WHERE email = 'admin@gmail.com';

@@ -153,5 +153,14 @@ public class ProductoDao {
 			}
 		}
 	}
+	public int contarProductos() throws SQLException {
+	    String sql = "SELECT COUNT(*) FROM Producto";
+	    try(PreparedStatement ps = conexion.prepareStatement(sql)){
+	    	ResultSet rs = ps.executeQuery();
+	    return rs.next() ? rs.getInt(1):0;
+	    }
+	    
+	}
+	
 
 }

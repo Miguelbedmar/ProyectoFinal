@@ -64,4 +64,12 @@ public class ClienteDao {
 			ps.executeUpdate();
 		}
 	}
+	public int contarClientes() throws SQLException {
+	    String sql = "SELECT COUNT(*) FROM Cliente";
+	    
+	    try(PreparedStatement ps = conexion.prepareStatement(sql)){
+	    	ResultSet rs = ps.executeQuery();
+	    return rs.next() ? rs.getInt(1):0;
+	    }
+	}
 }
