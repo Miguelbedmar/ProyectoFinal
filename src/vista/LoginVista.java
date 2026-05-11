@@ -94,7 +94,7 @@ public class LoginVista extends JPanel implements ActionListener {
 					} else {
 						JFrame clien = (JFrame) SwingUtilities.getWindowAncestor(this);
 						clien.getContentPane().removeAll();
-						clien.getContentPane().add(new VistaCliente());
+						clien.getContentPane().add(new VistaCliente(cliente));
 						clien.revalidate();
 						clien.repaint();
 
