@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import modelo.Cliente;
 import modelo.Cliente.rol;
-import modelo.Producto.tipoProducto;
 
 public class ClienteDao {
 

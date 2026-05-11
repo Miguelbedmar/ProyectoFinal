@@ -87,7 +87,7 @@ public class LoginVista extends JPanel implements ActionListener {
 					if (cliente.getRolUsuario().equals("ADMIN")) {
 						JFrame admin = (JFrame) SwingUtilities.getWindowAncestor(this);
 						admin.getContentPane().removeAll();
-						admin.getContentPane().add(new VistaAdmin());					
+						admin.getContentPane().add(new VistaAdmin(cliente));					
 						admin.revalidate();
 						admin.repaint();
 

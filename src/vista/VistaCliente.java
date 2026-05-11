@@ -1,6 +1,5 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -79,8 +78,7 @@ public class VistaCliente extends JPanel implements ActionListener {
 			}
 
 		});
-		contenido = new JPanel();
-		contenido.add(new JLabel("Bienvenido/a" + cliente.getNombre()));
+		contenido = new VistaCatalogo();
 		add(contenido);
 	}
 
