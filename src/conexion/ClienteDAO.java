@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Cliente;
 import modelo.Cliente.rol;
@@ -72,4 +74,32 @@ public class ClienteDao {
 	    return rs.next() ? rs.getInt(1):0;
 	    }
 	}
+	
+	public ArrayList<Cliente> obtenerTodosClientes() throws SQLException {
+		List<Cliente> clientes = new ArrayList<>();
+	    String sql = "SELECT * FROM Cliente";
+	    try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+	        ResultSet rs = ps.executeQuery();
+	        while (rs.next()) {
+	            String rolStr = rs.getString("rol");
+	            rol rolUsuario = rolStr != null ? rol.valueOf(rolStr.toUpperCase()) : rol.CLIENTE;
+	            Cliente c = new Cliente(
+	                rs.getInt("id_cliente"),
+	                rs.getString("nombre"),
+	                rs.getString("apellido"),
+	                rs.getString("telefono"),
+	                rs.getString("email"),
+	                rs.getString("ciudad"),
+	                rs.getBoolean("es_socio"),
+	                rs.getInt("id_socio"),
+	                rs.getString("contrasenia"),
+	                rs.getDate("fecha_nacimiento"),
+	                rolUsuario
+	            );
+	            clientes.add(c);
+	        }
+	    }
+	    return (ArrayList<Cliente>) clientes;
+	}
+	
 }

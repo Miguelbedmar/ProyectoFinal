@@ -30,7 +30,12 @@ public class DashboardAdmin extends JPanel {
 		JPanel panelTarjetas = new JPanel(new GridLayout(1, 3, 20, 0));
 		panelTarjetas.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
 
+		panelTarjetas.add(crearTarjeta("CLIENTES TOTALES", ObtenerCliente(), new Color(52, 152, 219)));
+	    panelTarjetas.add(crearTarjeta("PRODUCTOS", obtenerNumProductos(), new Color(46, 204, 113)));
+	    panelTarjetas.add(crearTarjeta("VENTAS REALIZADAS", obtenerNumVentas(), new Color(231, 76, 60)));
 		
+		add(panelTarjetas);
+		add(Box.createHorizontalGlue());
 	}
 
 	private JPanel crearTarjeta(String titulo, String valor, Color color) {
@@ -48,7 +53,8 @@ public class DashboardAdmin extends JPanel {
 		lblValor.setFont(new Font("Arial", Font.BOLD, 40));
 		lblValor.setForeground(Color.WHITE);
 		lblValor.setAlignmentX(CENTER_ALIGNMENT);
-
+		
+		
 		tarjeta.add(Box.createVerticalGlue());
 		tarjeta.add(lblTitulo);
 		tarjeta.add(Box.createRigidArea(new Dimension(0, 10)));

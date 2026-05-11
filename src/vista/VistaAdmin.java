@@ -85,8 +85,7 @@ public class VistaAdmin extends JPanel implements ActionListener {
 			}
 
 		});
-		contenido = new JPanel();
-		contenido.add(new JLabel("PANEL DE ADMINISTRACION - BIENVENIDO/A" + admin.getNombre()));
+		contenido = new DashboardAdmin();
 		add(contenido);
 	}
 

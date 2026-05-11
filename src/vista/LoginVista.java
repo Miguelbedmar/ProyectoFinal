@@ -28,6 +28,7 @@ public class LoginVista extends JPanel implements ActionListener {
 	private JButton registro;
 	private JTextField texto;
 	private JPasswordField contrasenia;
+	
 	/*
 	 * PARA EVITAR QUE LA CONTRASEÑIA DEL USUARIO SEA VISIBLE SE UTILIZARA UNA
 	 * SUBCLASE QUE HEREDA DE TEXTFIELD, DEMONINADA JPASSWORDFIELD QUE ENMASCARA LOS
@@ -84,7 +85,7 @@ public class LoginVista extends JPanel implements ActionListener {
 			try {
 				Cliente cliente = cD.login(email, contrasen);
 				if (cliente != null) {
-					if (cliente.getRolUsuario().equals("ADMIN")) {
+					if (cliente.getRolUsuario() == modelo.Cliente.rol.ADMIN){
 						JFrame admin = (JFrame) SwingUtilities.getWindowAncestor(this);
 						admin.getContentPane().removeAll();
 						admin.getContentPane().add(new VistaAdmin(cliente));					

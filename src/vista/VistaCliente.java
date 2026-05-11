@@ -97,7 +97,7 @@ public class VistaCliente extends JPanel implements ActionListener {
 			verPanel(new VistaCatalogo());
 		}
 		if (e.getSource() == realizarCompra) {
-			verPanel(new VistaCompra());
+			verPanel(new VistaCompra(clienteActual));
 		}
 		if (e.getSource() == cerrarSesión) {
 			JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);

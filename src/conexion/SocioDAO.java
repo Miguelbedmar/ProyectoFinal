@@ -64,5 +64,6 @@ public class SocioDAO {
 		return (ArrayList<Socio>) socio;
 
 	}
+	
 
 }
