@@ -1,9 +1,9 @@
 # ProyectoFinal
 
-🎯OBJETIVOS
+# 🎯OBJETIVOS
 El principal objetivo de este proyecto de programación  es  crear una app  simuladora  con interfaz gráfica en java en donde  se realice una importación completa de datos desde leer los archivos hasta que se almacenen en la base de datos.
 
-📌REQUISITOS.
+# 📌REQUISITOS.
 
 1. La base de datos debe de contener minimamente dos tablas y 10 registros en total ademas de que los atributos deben de ser distintos es decir no todos los atributos deben de ser de tipo VARCHAR(), las tablas deben de contener clave primaria y alguna conexion entre ellas .
 2. La applicación deben de permitir realizar búsquedas mínimas de algún registro que exiga el usuario por ejemplo de algún producto comprado.
@@ -17,9 +17,10 @@ El principal objetivo de este proyecto de programación  es  crear una app  simu
 10. Al finalizar la applicación se deberá mostrar un mensaje de finalización de programa.
 
 
-🧑‍💻Tecnologías y 🆔IDE que se utilizara durante el desarrollo
-
-1. Java
-2. SQL
-3. Eclipse.
-4. Mysql
+# 🧑‍💻Tecnologías 
+- Java
+- SQL  
+# 🆔IDE que se utilizara durante el desarrollo
+ - Eclipse.
+ - Mysql
+ 
